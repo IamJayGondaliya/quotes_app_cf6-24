@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quotes_app/utils/quote_utils.dart';
+import 'package:quotes_app/views/home_page/home_page.dart';
 
 /*
 
@@ -32,32 +33,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Quotes App"),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16),
-          child: SingleChildScrollView(
-            child: Column(
-              children: allQuotes
-                  .map(
-                    (e) => Card(
-                      child: ListTile(
-                        title: Text(
-                          e.quote,
-                          maxLines: 3,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        subtitle: Text(e.author),
-                      ),
-                    ),
-                  )
-                  .toList(),
-            ),
-          ),
-        ),
-      ),
+      routes: {
+        '/': (context) => const HomePage(),
+      },
     );
   }
 }
